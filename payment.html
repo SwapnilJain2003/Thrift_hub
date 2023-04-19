@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="css/style3.css">
+    
+    
+</head>
+<body onload="document.form1.text1.focus()">
+
+<div class="container">
+
+    <form name="form1" action="">
+
+        <div class="row">
+
+            <div class="col">
+
+                <h3 class="title">billing address</h3>
+
+                <div class="inputBox">
+                    <span>full name :</span>
+                    <input type="text" placeholder="ex: navya" required>
+                </div>
+                <div class="inputBox">
+                    <span>email :</span>
+                    <input type="email" placeholder="example@example.com" required>
+                </div>
+                <div class="inputBox">
+                    <span>address :</span>
+                    <input type="text" placeholder="room - street - locality" required>
+                </div>
+                <div class="inputBox">
+                    <span>city :</span>
+                    <input type="text" placeholder="ex: bengaluru" required>
+                </div>
+
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>state :</span>
+                        <input type="text" placeholder="ex: karnataka" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>zip code :</span>
+                        <input type="text" placeholder="123 456" required>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col">
+
+                <h3 class="title">payment</h3>
+
+                <div class="inputBox">
+                    <span>cards accepted :</span>
+                    <img src="images/card_img.png" alt="">
+                </div>
+                <div class="inputBox">
+                    <span>name on card :</span>
+                    <input type="text" placeholder="ex: ms. navya" required>
+                </div>
+                <div class="inputBox">
+                    <span>credit card number :</span>
+                    <input name='text1' type='number' placeholder="1111-2222-3333-4444" required>
+                </div>
+                <div class="inputBox">
+                    <span>exp month :</span>
+                    <input type="text" placeholder="ex: january" reqired>
+                </div>
+
+                <div class="flex">
+                    <div class="inputBox">
+                        <span>exp year :</span>
+                        <input type="number" name="text3" placeholder="2023 onwards" required>
+                    </div>
+                    <div class="inputBox">
+                        <span>CVV :</span>
+                        <input type="text" name="text2" placeholder="123" required>
+                    </div>
+                </div>
+
+            </div>
+    
+        </div>
+
+        <input type="button" value="Confirm" class="submit-btn" onclick="return formvalidations()">
+
+        <a href="homepage.php"><input type="button" value="Done" class="submit-btn"></a>
+
+    </form>
+
+</div>    
+
+</body>
+<script>
+    function cvv(inputt)
+    {
+        
+    }
+    function formvalidations()
+    {
+    //cardno
+    var cardno = document.form1.text1;
+    var cvvno = document.form1.text2;
+    var yearno = document.form1.text3;
+    var cardnovisa = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;//visa
+    var cardnomastercard = /^(?:5[1-5][0-9]{14})$/;//mastercard
+    if(cardno.value.match(cardnovisa))
+        {
+      return true;
+        }
+      else if(cardno.value.match(cardnomastercard))
+      {
+        return true;
+      }
+      else
+        {
+        alert("Not a valid visa/mastercard credit card number!");
+        return false;
+        }
+        //cvv
+        if(cvvno.value>=100 && cvvno.value<=999)
+        {
+            return true;
+        }
+        else
+        {
+            alert("Not a valid CVV!");
+            return false;
+        }
+        //year
+        if(yearno.value>=2023 && yearno.value<=2100)
+        {
+            alert("Details are Valid");
+            return true;
+        }
+        else
+        {
+            alert("Not a valid expiry year!");
+            return false;
+        }
+
+            
+        
+    }
+</script>
+</html>

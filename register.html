@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Thrift Hub | Register</title>
+	<link rel="stylesheet" href="design.css">
+	<link rel="stylesheet" href="navbar.css">
+</head>
+<body>
+	<nav>
+		<div>
+			<a href="home.html" id="logo"><img src="assets/logo.png" alt="logo" height="40"></a>
+			<span id="tagline">Steals and Deals</span>
+		</div>
+		<div>
+			<a href="#">About Us</a>
+			<a href="#">Contact Us</a>
+			<button id="login">Login/Register</button>
+			<!-- <div id="dark-mode">
+				<input type="checkbox" id="dark-mode-toggle">
+				<label for="dark-mode-toggle">Dark Mode</label>
+			</div> -->
+		</div>
+	</nav>
+	<form action="#" method="POST">
+		<h2>Register on Thrift Hub</h2>
+		<label for="firstName">First Name:</label>
+		<input type="text" id="firstName" name="firstName" required>
+		<label for="lastName">Last Name:</label>
+		<input type="text" id="lastName" name="lastName" required>
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username" required>
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required>
+		<label for="phone">Phone Number:</label>
+		<input type="tel" id="phone" name="phone" required>
+        <br>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" required>
+		<label for="confirmPassword">Confirm Password:</label>
+		<input type="password" id="confirmPassword" name="confirmPassword" required>
+		<p class="error" id="passwordError"></p>
+        <label for="userType">User Type:&nbsp;</label>
+		<select id="userType" name="userType" required>
+			<option value="">Select User Type</option>
+			<option value="seller">Seller</option>
+			<option value="buyer">Buyer</option>
+			<option value="reseller">Reseller</option>
+		</select>
+		<p>Already Have an Account? <a href="login.html">Login now</a></p>
+		<input type="submit" value="Register">
+	</form>
+
+	<script>
+		// Password validation
+		const passwordInput = document.getElementById('password');
+		const confirmPasswordInput = document.getElementById('confirmPassword');
+		const passwordError = document.getElementById('passwordError');
+
+		confirmPasswordInput.addEventListener('input', () => {
+			if (passwordInput.value !== confirmPasswordInput.value) {
+				passwordError.textContent = 'Passwords do not match';
+			} else {
+				passwordError.textContent = '';
+			}
+		});
+	</script>
+</body>
+</html>

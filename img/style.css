@@ -1,0 +1,312 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-y: auto;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #f2f2f2;
+  }
+  
+  
+
+  footer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 13;
+  }
+  
+  .top{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+
+    font-size: 24px;
+    font-family: "Arial";
+    color: whitesmoke;
+    background-color: #a3745f;
+    border-color: #a3745f;
+    cursor: pointer;
+z-index: 40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #search-container form{
+    display: flex;
+    left: 10%;
+  justify-content: center;
+  align-items: center;
+    width: 400px;
+    
+    position: relative;
+    overflow-wrap: normal;
+    
+}
+
+
+
+  .carousel-content {
+    position: absolute;
+    /*to center the content horizontally and vertically*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    text-align: center;
+    z-index: 50;
+}
+.carousel-heading {
+    font-size: 3rem;
+    color: #308d46;
+    margin-bottom: 1rem;
+}
+/*----- end of carousel content stylings ----- */
+
+/* ----- slideshow stylings ----- */
+.slideshow {
+    height: 70%;
+    overflow: hidden; /* to hide slides in x-direction */
+    position: relative;
+}
+/* wrapper which wraps all the slideshow images stylings */
+.slideshow-wrapper {
+    display: flex;
+    /* We give it width as 400% because we are making a 
+       4 image carousel. If you want to make for example, 
+       5 images carousel, then give width as 500%. */
+    width: 300%;
+    height: 17%;
+    position: relative;
+    /* you can change the animation settings from below */
+    animation: slideshow 20s infinite;
+ }
+/* define width and height for images*/
+.slide {
+    width: 100%;
+    height: 70%;
+}
+.slide-img {
+    width: 100%;
+    height: 70%;
+    object-fit: contain; 
+}
+/* @keyframes are used to provide animations
+   We make these settings for 4 image carousel.
+   Make modification according to your needs. */
+@keyframes slideshow {
+    0%  { left: 0; }
+    10% { left: 0; }
+    15% { left: -100%; }
+    25% { left: -100%; }
+    30% { left: -100%; }
+    40% { left: -200%; }
+    45% { left: -200%; }
+    55% { left: -200%; }
+    60% { left: -100%; }
+    70% { left: -100%; }
+    75% { left: -100%; }
+    85% { left: -000%; }
+    90% { left: -000%; }
+    95% { left: -000%; }
+}
+/* ----- end of slideshow stylings ----- */
+
+/* ----- carousel control buttons stylings ----- */
+.slide-btn {
+    background-color: rgb(211, 211, 211);
+    border-radius: 50%;
+    border-color:transparent;
+    width: 1.2rem;
+    height: 1.2rem;
+    outline: transparent;
+    cursor: pointer;
+    /* stylings for positioning the buttons at
+       the bottom of the carousel */
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 70;
+}
+/* As we provide position as absolute, 
+the buttons places one over the other. 
+So, we have to place them individually
+at their correct positions. */
+.slide-btn-1 {
+    left: 45%;
+}
+.slide-btn-2 {
+    left: 50%;
+}
+.slide-btn-3 {
+    left: 55%;
+}
+
+/* When we focus on the particular button, 
+the animation stops to that particular image 
+to which the button is associated. */
+.slide-btn-1:focus~.slideshow-wrapper {
+    animation: none;
+    left: 0;
+}
+.slide-btn-2:focus~.slideshow-wrapper {
+    animation: none;
+    left: -100%;
+}
+.slide-btn-3:focus~.slideshow-wrapper {
+    animation: none;
+    left: -200%;
+}
+
+/* when we focus on the button, the background color changes */
+.slide-btn:focus {
+    background-color: #3f3f3f;
+}
+
+.category {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    display: inline-block;
+    position:relative;
+    left: 14%;
+    margin-top: 20px;
+    padding-right: 50px;
+    
+}
+
+.category img {
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.category:hover img {
+    transform: scale(1.1);
+    border-radius: 10px;
+}
+
+.category h4 {
+    position: absolute;
+    bottom: 0;
+    left: 00px;
+    padding: 10px;
+    
+    text-align:center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(13, 7, 54);
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 80%;
+    cursor: pointer;
+    transition: bottom 0.3s ease-in-out;
+}
+
+.category:hover h4 {
+    bottom: -20px;
+
+}
+
+
+.products {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 10px;
+
+}
+
+
+.product-item {
+  border: none;
+  padding: 10px;
+  text-align: center;
+  vertical-align: bottom;
+  transition: box-shadow 0.3s ease-in-out;
+  margin-bottom: 10px;
+  color: #4a4a4a;
+}
+
+.product-item a{
+  text-decoration: none;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #4a4a4a;
+  
+}
+
+.product-item img {
+  width: 250px;
+  height: 275px;
+}
+
+.product-item img:hover  {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+  outline: none;
+  border: none;
+}
+
+.product-item h3 a{
+  font-size: 20px;
+  margin: 10px 0;
+  white-space: normal;
+
+}
+
+
+.product-item p{
+  font-size: 18px;
+  margin: 10px 0;
+  color : #8fa598;
+
+}
+.product-item p a{
+  font-size: 18px;
+  margin: 10px 0;
+  color : #8fa598;
+
+}
+
+
+
+#add-to-cart{
+  height: 45px;
+  width: 250px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size:large;
+  transition: background-color 0.3s ease;
+  background-color: #c7a58d;
+    color: rgb(228, 228, 228);
+    outline: none;
+    border: none;
+}
+
+#add-to-cart:hover{
+  background-color: #aa8b75;
+  
+}
+
+
+.product-info{
+  position: relative;
+  text-align:center;
+  margin-left: 75%;
+  z-index: 30;
+}
+@media screen and (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+
