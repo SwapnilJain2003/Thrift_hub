@@ -3,6 +3,9 @@
 
 <head>
 	<title>Thrift Hub | Admin Panel</title>
+	<?php
+	include 'navbar.php';
+	?>
 	<style>
 		table {
 			border-collapse: collapse;
@@ -21,7 +24,7 @@
 		}
 
 		button {
-			background-color: #4CAF50;
+			background-color: #f76707;
 			color: white;
 			padding: 8px 16px;
 			border: none;
@@ -29,21 +32,39 @@
 		}
 
 		button:hover {
-			background-color: #3e8e41;
+			background-color: #e66006;
 		}
 	</style>
 </head>
 
 <body>
-	<h1>Thrift Hub | Admin Panel</h1>
-	<ul>
-		<li><a href="?view=products">Products</a></li>
-		<li><a href="?view=users">Users</a></li>
-	</ul>
+<nav>
+		<div>
+			<a href="homepage.php" id="logo"><img src="img/logo.png" alt="logo" height="60"></a>
+			<span id="tagline">Steals and Deals</span>
+		</div>
+		<div>
+			<a href="about.html">About Us</a>
+			<a href="contactus.html">Contact Us</a>
+			<a href="?view=products">Products</a>
+			<a href="?view=users">Users</a>
+			<a href="logout.php">Logout</a>
+			
+			<!-- <button id="login" onclick="gotologin()">Login/Register</button> -->
+            <script>
+                function gotologin(){
+                    window.location.href = "login.php";
+                }
+            </script>
+		</div>
+	</nav>
+	
 	<?php
 	// Check which view to display
 	$view = $_GET['view'] ?? 'products';
 	if ($view == 'users') {
+		?>
+		<?php
 		include('users.php');
 	} else {
 		include('products.php');
