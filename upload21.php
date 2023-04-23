@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $res = mysqli_query($conn,$query);
     //echo "hit";
 
+    
     if(mysqli_num_rows($res)>0){
         $category_fetch = mysqli_fetch_assoc($res);
         $categoryId = $category_fetch['category_id'];
