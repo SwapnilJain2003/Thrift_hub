@@ -89,7 +89,7 @@ if (isset($_POST['submit'])) {
 <body>
     <nav>
         <div>
-            <a href="homepage.php" id="logo"><img src="img/logo.png" alt="logo" height="60"></a>
+            <a href="#" id="logo"><img src="img/logo.png" alt="logo" height="60"></a>
             <span id="tagline">Steals and Deals</span>
         </div>
         <div>

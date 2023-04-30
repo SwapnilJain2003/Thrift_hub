@@ -96,10 +96,10 @@ $conn->close();
 		<div>
 			<a href="#">About Us</a>
 			<a href="#">Contact Us</a>
-			<button id="login" onclick="gotologin()">Login/Register</button>
+			<button id="login" onclick="gotologin()">Logout</button>
             <script>
                 function gotologin(){
-                    window.location.href = "login.php";
+                    window.location.href = "logout.php";
                 }
             </script>
 		</div>
