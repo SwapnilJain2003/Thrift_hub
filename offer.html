@@ -1,0 +1,145 @@
+
+<html>
+    <head>
+        <style>
+          @import url('https://fonts.googleapis.com/ css2?family-Poppins:wght@200; 300; 400; 500; 600; 700; 800;900&display-swap');
+*
+            .offer-container {
+              font-family: 'Poppins', sans-serif;
+  background-color: #47361e;
+  color:beige;
+  text-align:center;
+  padding: 20px;
+}
+
+.offer-heading {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.offer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.offer-item {
+  width: 30%;
+  background-color: #554227;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.offer-item:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.offer-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.offer-title {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.offer-description {
+  font-size: 16px;
+  margin-top: 0;
+}
+
+        </style>
+        <script>
+            // Code to fetch offers from the server and display them on the page
+fetch('/api/offers')
+  .then(response => response.json())
+  .then(data => {
+    const offerWrapper = document.querySelector('.offer-wrapper');
+    for (let i = 0; i < data.length; i++) {
+      const offerItem = document.createElement('div');
+      offerItem.classList.add('offer-item');
+      const offerImage = document.createElement('img');
+      offerImage.src = data[i].image;
+      offerImage.alt = data[i].title;
+      offerImage.classList.add('offer-image');
+      const offerTitle = document.createElement('h3');
+      offerTitle.textContent = data[i].title;
+      offerTitle.classList.add('offer-title');
+      const offerDescription = document.createElement('p');
+      offerDescription.textContent = data[i].description;
+      offerDescription.classList.add('offer-description');
+      offerItem.appendChild(offerImage);
+      offerItem.appendChild(offerTitle);
+      offerItem.appendChild(offerDescription);
+      offerWrapper.appendChild(offerItem);
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching offers:', error);
+  });
+        </script>
+        
+    </head>
+    
+
+    <body>
+        <div class="offer-container">
+            <h2 class="offer-heading">Today's Offers</h2>
+            <div class="offer-wrapper">
+              <div class="offer-item">
+                <img src="https://i.pinimg.com/564x/a1/3a/1f/a13a1f40e3f77665bc9034dfbdde1caa.jpg" alt="Offer 1" class="offer-image">
+                <h3 class="offer-title">10% off on all products</h3>
+                <p class="offer-description">Use coupon code OFF10 at checkout</p>
+              </div>
+              <div class="offer-item">
+                <img src="https://i.pinimg.com/564x/a3/47/28/a34728d2be0e31ff86fe98f654a17316.jpg" alt="Offer 2" class="offer-image">
+                <h3 class="offer-title">Free shipping on orders above 500 INR</h3>
+                <p class="offer-description">No coupon code required</p>
+              </div>
+              <div class="offer-item">
+                <img src="https://i.pinimg.com/564x/d7/5b/7f/d75b7f3fcf9f09f14db971217744e00b.jpg" alt="Offer 3" class="offer-image">
+                <h3 class="offer-title">Buy 2 get 1 free on selected products</h3>
+                <p class="offer-description">Discount will be applied at checkout</p>
+              </div>
+              <div class="offer-item">
+                <img src="https://i.pinimg.com/564x/48/31/8c/48318c356670beea98d9afe433e7ea96.jpg" alt="Offer 4" class="offer-image">
+                <h3 class="offer-title">SPECTACULAR looks on sale!!!!</h3>
+                <p class="offer-description">Use coupon code SPECYSALE at checkout</p>
+              </div>
+              <div class="offer-item">
+                <img src="https://i.pinimg.com/564x/6e/49/1e/6e491e17d20a90544fb9a3d4e3ad2aa5.jpg" alt="Offer 5" class="offer-image">
+                <h3 class="offer-title">buy 3 get 3 free ^-^</h3>
+                <p class="offer-description">Use coupon code THREEONTHREE at checkout</p>
+              </div>
+              <div class="offer-item">
+                <img src="https://i.pinimg.com/564x/f0/52/63/f05263227c6fb136d75b7e4e542ad4d3.jpg" alt="Offer 6" class="offer-image">
+                <h3 class="offer-title">Refer a friend and earn these shades + discount on next order upto 100 INR</h3>
+                <p class="offer-description">HURRY UP!!!!</p>
+              </div>
+              <div class="offer-item">
+                <img src="https://i.pinimg.com/564x/96/40/60/96406017bd2c896e93dca4f0103991fa.jpg" alt="Offer 7" class="offer-image">
+                <h3 class="offer-title">SCRUNCHIEEE TIMEEE 20% OFF</h3>
+                <p class="offer-description">Use coupon code SCRUNCHIE20 at checkout</p>
+              </div>
+              <div class="offer-item">
+                <img src="https://i.pinimg.com/564x/59/77/05/59770511eab524f501414788cd96f801.jpg" alt="Offer 8" class="offer-image">
+                <h3 class="offer-title">royal white scrunchies + free hoops</h3>
+                <p class="offer-description">Use coupon code OFF39S at checkout</p>
+              </div>
+              <div class="offer-item">
+                <img src="https://i.pinimg.com/564x/01/7c/03/017c032b6c81fcc560618ed316f242fa.jpg" alt="Offer 9" class="offer-image">
+                <h3 class="offer-title">buy 50 of these basic purses and get 50% of on the remaining</h3>
+                <p class="offer-description">Use coupon code FIFTYFIFTY at checkout</p>
+              </div>
+              
+              
+
+            </div>
+          </div>
+    </body>
+
+</html>
